@@ -1,4 +1,4 @@
-== Invoice Presto
+<h1 style="color: navy">Invoice Presto</h1>
 
 This is a simple invoicing system which has been built using Rails, and a jQuery frontend with ajax communication to the CRUD operations.
 <br>
