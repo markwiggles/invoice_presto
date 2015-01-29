@@ -1,0 +1,29 @@
+
+.account-invoice
+
+  .row
+    .col-md-6
+      %h1.text-primary Settings
+      %p Create, update and delete your invoice menu options
+    .col-md-4.pull-right
+      = link_to '<i class="fa  fa-list-alt"> New Invoice</i>'.html_safe, account_invoices_path,
+                    :class => 'btn btn-default btn-lg', id: 'new-invoice-btn'
+
+  .row
+
+    .account-settings.col-md-6.col-sm-6.col-xs-6
+
+      =render 'account/settings/content'
+
+    .form-view.col-md-5.pull-right.offset-1
+
+
+
+
+
+
+
+
+
+
+

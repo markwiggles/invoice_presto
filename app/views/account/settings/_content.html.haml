@@ -1,0 +1,49 @@
+
+
+#content-list
+  #accordion(data-panel="#{params[:id]}")
+
+    -settings = [{name: 'Billers', :components => @billers, controller: 'billers'},
+    {name: 'Debtors', :components => @debtors, controller: 'debtors'},
+    {name: 'Items', :components => @items, controller: 'items'},
+    {name: 'Tax Codes', :components => @tax_codes, controller: 'tax_codes'},
+    {name: 'Freight Codes', :components => @freight_codes, controller: 'freight_codes'},
+    {name: 'Bank Details', :components => @bank_details, controller: 'bank_details'}]
+
+    -settings.each do |setting|
+      %h3
+        %i.fa.fa-caret-down.fa-md{style: "color: lightgrey"}
+        =setting[:name] 
+      .content-item
+        %p.content-header
+          =link_to '<i class="fa fa-plus-square fa-md image-link"> Add New</i>'.html_safe,
+              {controller: setting[:controller], action: 'new'}, remote: true
+
+        %table
+
+          -(setting[:components]).each do |component|
+            %tr
+              %td{style: 'width: 20%'}
+                =link_to '<i class="fa fa-edit fa-md image-link"></i>'.html_safe,
+                {controller: setting[:controller], action: 'edit',:id => component.id}, remote: true
+
+                =link_to '<i class="fa fa-times-circle fa-md image-link"></i>'.html_safe,
+                {controller: setting[:controller], action: 'delete', :id => component.id},   remote: true
+
+              %td
+                .attribute
+                  -if defined? component.name
+                    =component.name
+                  -elsif defined?  component.text
+                    =component.text
+                  -elsif defined? component.account_name
+                    =component.account_name
+
+:javascript
+
+
+      $( document ).ready(function () {
+          var open = $('#accordion').attr('data-panel');
+          initAccordion(parseInt(open));
+      });
+

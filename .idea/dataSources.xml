@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="817375395">
+    <data-source source="LOCAL" name="Rails SimpleInvoice: development" uuid="8a3de1d7-8dd9-4a9a-b7ea-b1dd33a3d161">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine60/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine60/jdbc-drivers/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar</url>
+        </library>
+        <library>
+          <url>file://$PROJECT_DIR$/../TestShop/db/development.sqlite3</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>

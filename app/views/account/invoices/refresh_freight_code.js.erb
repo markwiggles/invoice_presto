@@ -1,0 +1,8 @@
+
+// Write the freight amount
+var freightAmt = <%= @freight_code.rate %>;
+$('#freight-calc').html(freightAmt);
+
+// Calculate and write the new tax $ and new invoice total
+calculateFreight(freightAmt);
+calculateInvoiceTotal();

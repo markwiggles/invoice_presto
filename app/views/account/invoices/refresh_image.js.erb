@@ -1,0 +1,5 @@
+
+
+$('#logo').empty();
+
+$('#logo').html("<%= j render :partial => 'account/invoices/logo', locals: {:image => @logo.image_url} %>");

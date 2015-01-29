@@ -1,0 +1,134 @@
+
+
+
+<div id="invoice-form" class="container account-invoice">
+
+  <%= simple_form_for @invoice, url: {controller: 'invoices', action: 'create'}, remote: true do |f| %>
+
+      <div class="row">
+        <%= f.input :logo_id, collection: @logos.map { |sel| [sel.name, sel.id] }, label: false, prompt: 'Select a logo' %>
+        <%= link_to '<i class="fa  fa-list-ul"> Settings</i>'.html_safe, root_path,
+                    :class => 'btn btn-default btn-lg', id: 'settings-btn' %>
+        <div id="tax-details">
+          <h4 class="text-primary" style="display: inline-block"></h4>
+          <%= f.input_field :gst, as: :boolean, boolean_style: :inline, label: false %>
+        </div>
+      </div>
+
+      <div id="invoice-print">
+
+        <div class="row">
+          <div id="logo"></div>
+          <div class="pull-right" id="invoice-header">
+            <h1 class="text-primary">INVOICE</h1>
+
+            <div id="invoice-sub-header" class="pull-right">
+              <p><%= @date %></p>
+
+              <p><%= f.input :invoice_number, placeholder: 'Create invoice No.', label: false %></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="address" id="biller-details">
+            <%= f.input :biller_id, collection: @billers.map { |sel| [sel.name, sel.id] }, prompt: 'Select a Biller', label: false %>
+            <div id="biller"></div>
+          </div>
+          <div id="debtor-details">
+            <p class="text-primary">Bill To:</p>
+            <%= f.input :debtor_id, collection: @debtors.map { |sel| [sel.name, sel.id] }, prompt: 'Select a Debtor', label: false %>
+            <div id="debtor"></div>
+          </div>
+        </div>
+
+        <!-- Table-->
+        <div class="row">
+          <div id="invoice-details">
+
+            <div id="bank-details">
+              <p class="text-primary">Bank Account Details:</p>
+              <%= f.input :bank_detail_id, collection: @bank_details.map { |sel| [sel.account_name, sel.id] }, prompt: 'Select a Bank Acc', label: false %>
+              <div id="bank-account"></div>
+            </div>
+
+
+            <table class="table">
+
+              <thead>
+              <tr>
+                <th id="item">
+                  <div>Item</div>
+                </th>
+                <th id="description">
+                  <div>Description</div>
+                </th>
+                <th id="date">
+                  <div>Date</div>
+                </th>
+                <th id="price">
+                  <div>Price</div>
+                </th>
+                <th id="total">
+                  <div>Total</div>
+                </th>
+              </tr>
+              </thead>
+
+              <tbody>
+
+              <tr class="table-data">
+                <td><%= f.input :item_id, collection: @items.map { |sel| [sel.text, sel.id] }, label: false, prompt: 'Select an item' %></td>
+                <td><%= f.input :description_id, collection: @descriptions.map { |sel| [sel.text, sel.id] }, label: false, prompt: 'Select a description' %></td>
+                <td><%= f.input :date, label: false, input_html: {class: 'datepicker'} %></td>
+                <td class="right-align">
+                  <div class="calc">
+                    <span class="dollar">$</span><%= f.input :amount, label: false, input_html: {class: 'right-align'}, placeholder: 'amt' %>
+                  </div>
+                </td>
+                <td class="right-align">
+                  <div class="calc"><span class="dollar">$</span><span id="sub-total"></span></div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="right-align" colspan="4">
+                  <div class="td-text">GST Included</div>
+                </td>
+                <td class="right-align">
+                  <div class="calc"><span class="dollar">$</span><span id="tax-calc">na</span></div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="right-align" colspan="4">
+                  <div class="td-text">Invoice Total</div>
+                </td>
+                <td class="right-align">
+                  <div class="calc"><span class="dollar">$</span><span id="total-calc"></span></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <!--END table-->
+        </div>
+      </div>
+      <%= f.button :submit, '&#xf022; Create Invoice'.html_safe, class: 'btn-default create-invoice' %>
+
+  <% end %>
+
+</div><!--END invoice-form-->
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+
+
+
+$('#bank-account').empty();
+
+$('#bank-account').html("<%= j render :partial => 'account/invoices/bank_details', locals: {:bank_detail=> @bank_detail} %>");

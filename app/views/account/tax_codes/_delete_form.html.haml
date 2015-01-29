@@ -1,0 +1,20 @@
+
+/ DELETE FORM
+
+
+%h4
+  %strong.text-danger
+    =format_name params
+
+.form-sm
+
+  %u You are about to delete
+
+  %h4
+    =@tax_code.name
+
+  %br
+  %br
+
+  =button_to 'DELETE', {:controller => 'account/tax_codes', :action => 'destroy', :id => @tax_code.id},
+  :method => :delete, class: 'btn-default'

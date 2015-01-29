@@ -1,0 +1,128 @@
+<!--NEW INVOICE FORM-->
+
+<div id="invoice-form" class="container account-invoice">
+
+      <div id="invoice-print">
+
+        <!-- TOP INVOICE SECTION-->
+
+        <div class="row">
+
+          <!-- LEFT ALIGNED LOGO AND BILLER-->
+          <div id="biller-section" class="pull-left">
+            <div id="logo"></div>
+            <div class="address" id="biller-details">
+              <div id="biller">
+                <%= @biller.name %><br>
+                <%= @biller.email %><br>
+                <%= @biller.phone %>
+              </div>
+            </div>
+          </div>
+
+          <!--RIGHT ALIGNED INVOICE HEADER AND DEBTOR-->
+          <div class="pull-right" id="invoice-header">
+            <h1 class="text-primary">INVOICE</h1>
+
+            <div id="invoice-sub-header" class="pull-right">
+              <p><%= @date %></p>
+              <p><%= @invoice.invoice_number %></p>
+            </div>
+
+            <div id="debtor-details">
+              <p class="text-primary">Bill To:</p>
+
+              <div id="debtor">
+                <%= @debtor.name %><br>
+              <%= @debtor.email %><br>
+              <%= @debtor.phone %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Table-->
+        <div class="row">
+          <div id="invoice-details">
+
+            <div id="bank-details">
+              <p class="text-primary">Bank Account Details:</p>
+              <div id="bank-account">
+                <strong>Account Name: &nbsp;</strong> <%= @bank_detail.account_name %><br>
+                <strong>BSB: &nbsp;</strong> <%= @bank_detail.bsb %><br>
+                <strong>Account No: &nbsp;</strong> <%= @bank_detail.account_number %>
+              </div>
+            </div>
+
+
+            <table class="table">
+
+              <thead>
+              <tr>
+                <th id="item">
+                  <div>Item</div>
+                </th>
+                <th id="description">
+                  <div>Description</div>
+                </th>
+                <th id="price">
+                  <div>Price</div>
+                </th>
+                <th id="qty">
+                  <div>Qty</div>
+                </th>
+                <th id="total">
+                  <div>Total</div>
+                </th>
+              </tr>
+              </thead>
+
+              <tbody>
+
+              <tr class="table-data">
+                <td><p><%= @item.name %></p></td>
+                <td><p><%= @item.description%></p></td>
+                <td><p><%= @item.price %></p></td>
+                <td class="right-align">
+                  <p><%= @invoice.qty %></p>
+                </td>
+
+                <td class="right-align">
+                  <div id="line-total"></div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="right-align" colspan="4">
+                  <div class="td-text">GST Included</div>
+                </td>
+                <td class="right-align">
+                  <div class="calc"><span class="dollar">$</span><span id="tax-calc">na</span></div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="right-align" colspan="4">
+                  <div class="td-text">Invoice Total</div>
+                </td>
+                <td class="right-align">
+                  <div class="calc"><span class="dollar">$</span><span id="total-calc"></span></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <!--END table-->
+        </div>
+      </div>
+
+</div><!--END invoice-form-->
+
+
+
+
+
+
+

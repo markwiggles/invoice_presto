@@ -1,0 +1,19 @@
+
+
+// EDIT FORM
+
+%h4
+  %strong.text-info
+    =format_name params
+
+=simple_form_for @bank_detail, url: {controller: 'account/bank_details', action: 'update'}, remote: true do |f|
+
+  =f.input :account_name, autofocus: true, label: false, placeholder: 'account name'
+  =f.input :bsb, label: false, placeholder: 'bsb'
+  =f.input :account_number, label: false, placeholder: 'account number'
+  %br
+  =f.button :submit, 'Update', class: 'btn-default'
+
+
+
+

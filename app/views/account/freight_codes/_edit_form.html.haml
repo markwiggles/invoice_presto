@@ -1,0 +1,18 @@
+
+
+// EDIT FORM
+
+%h4
+  %strong.text-info
+    =format_name params
+
+=simple_form_for @freight_code, url: {controller: 'account/freight_codes', action: 'update'}, remote: true do |f|
+
+  =f.input :name, autofocus: true, label: false, placeholder: 'name'
+  =f.input :rate, label: false, placeholder: '$ rate'
+  %br
+  =f.button :submit, 'Update', class: 'btn-default'
+
+
+
+

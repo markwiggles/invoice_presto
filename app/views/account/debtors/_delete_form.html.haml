@@ -1,0 +1,19 @@
+
+
+
+%h4
+  %strong.text-danger
+    =format_name params
+
+.form-sm
+
+  %u You are about to delete
+
+  %h4
+    =@debtor.name
+
+  %br
+  %br
+
+  =button_to 'DELETE', {controller: 'account/debtors', :action => 'destroy', :id => @debtor.id},
+  :method => :delete, class: 'btn-default'

@@ -1,0 +1,16 @@
+
+// NEW FORM
+
+%h4
+  %strong.text-info
+    =format_name params
+
+=simple_form_for @item, url: {controller: 'account/items', action: 'create'}, remote: true do |f|
+
+  =f.input :name, autofocus: true, label: false, placeholder: 'Item Name'
+  =f.input :description, autofocus: true, label: false, placeholder: 'Item Description'
+  =f.input :price, autofocus: true, label: false, placeholder: 'Price per unit'
+  %br
+  =f.button :submit, 'Create New', class: 'btn-default'
+
+

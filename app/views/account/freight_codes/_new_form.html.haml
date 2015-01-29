@@ -1,0 +1,15 @@
+
+// NEW FORM
+
+%h4
+  %strong.text-info
+    =format_name params
+
+=simple_form_for @freight_code, url: {controller: 'account/freight_codes', action: 'create'}, remote: true do |f|
+
+  =f.input :name, autofocus: true, label: false, placeholder: 'name'
+  =f.input :rate, label: false, placeholder: '$ rate'
+  %br
+  =f.button :submit, 'Create New', class: 'btn-default'
+
+

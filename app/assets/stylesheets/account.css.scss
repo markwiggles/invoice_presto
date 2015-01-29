@@ -1,0 +1,358 @@
+@import 'bootswatch/flatly/variables';
+
+
+
+#new-invoice-btn, #settings-btn {
+  float: right;
+  margin-top: 20px;
+}
+
+.account-invoice {
+  width: 690px;
+  height: 800px;
+  padding: 0;
+  position: relative;
+
+  #tax-details {
+    position: absolute;
+    top: 50px;
+    left: 300px;
+    z-index: 5000;
+  }
+
+  .create-invoice {
+    float: right;
+    font-family: "FontAwesome", "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  }
+
+  //Style the submit buttons
+  input[type=submit] {
+    background-image: linear-gradient(darken(#428bca, 20%), #428bca 10%, darken(#428bca, 20%));
+    color: #f5f5f5;
+    border-radius: 5px;
+    &:hover {
+      background-image: linear-gradient(darken(#428bca, 10%), #428bca 10%, darken(#428bca, 10%));
+    }
+    &:active {
+      background-image: linear-gradient(#428bca, #428bca 10%, #428bca);
+    }
+  }
+  form input {
+    margin-top: 10px;
+  }
+
+  /* ACCORDION***************************/
+  #accordion {
+
+    .content-header {
+      margin: 0 0 20px -20px;
+
+      i {
+        color: #2fa4e7 !important;
+      }
+    }
+    table {
+      table-layout: fixed;
+      width: 300px;
+      border: none;
+    }
+
+    p {
+      margin: 10px;
+      i {
+        color: #2fa4e7 !important;
+      }
+    }
+    .attribute {
+      margin-left: 10px;
+      min-height: 30px;
+      margin-top: 10px;
+    }
+
+    .fa {
+      display: inline-block;
+      padding-top: 0;
+    }
+  }
+
+  /* INVOICE *****************************************/
+
+  form {
+    width: 650px;
+  }
+
+  .row {
+    margin-bottom: 10px;
+  }
+
+  #invoice-header {
+    width: 200px;
+  }
+
+  h1 {
+    font-weight: bold;
+    margin-top: 0;
+    margin-right: 20px;
+  }
+
+  #logo {
+    display: inline-block;
+    height: 140px;
+    margin-left: 20px;
+    float: left;
+    img {
+      height: 100px;
+      width: auto;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  #invoice_logo_id {
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 130px;
+    float: left;
+  }
+
+  //style the input boxes
+  form input {
+    width: 200px;
+    padding: 10px;
+    margin: 0px;
+    color: black;
+  }
+
+  #invoice-print {
+    width: 690px;
+    height: 700px;
+    padding: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    background-color: lighten(darkslateblue, 55%);
+  }
+
+  #invoice-details {
+    width: 650px;
+    margin: 0 auto;
+  }
+
+  #biller-details {
+    float: left;
+    clear: both;
+    margin-left: 20px;
+    margin-top: -10px;
+    width: 180px;
+    #biller {
+      height: 80px;
+    }
+  }
+  #debtor-details {
+    float: right;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 180px;
+    #debtor {
+      height: 40px;
+    }
+  }
+
+  #invoice-sub-header {
+    margin-right: 10px;
+    width: 180px;
+  }
+
+  #invoice_invoice_number {
+    width: 150px;
+  }
+
+  select, #item-description, #invoice_amount, #invoice_invoice_number {
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1.0em;
+    margin-left: 0px;
+    border: none;
+    //background-color: lighten(lightgrey, 10%);
+    background-color: transparent;
+    color: lighten($brand-info, 10%);
+    overflow: hidden;
+    white-space: pre;
+    -webkit-appearance: none;
+    word-wrap: break-word;
+    font-family: "FontAwesome", "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  td p {
+    padding-top: 10px;
+  }
+  .control-group {
+    margin: 0px;
+    position: relative;
+    .help-inline {
+      position: absolute;
+      color: red;
+      top: 5px;
+      left: 90%;
+      z-index: 60000;
+    }
+  }
+
+  .placeholder {
+    ::-webkit-input-placeholder {
+      color: red;
+    }
+
+  }
+
+  #invoice-details {
+    position: relative;
+    border: 1px solid darkslateblue;
+    #bank-details {
+      position: absolute;
+      top: 200px;
+      left: 20px;
+      z-index: 5000;
+    }
+  }
+
+  table {
+//    border: 1px solid darkslateblue;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 650px;
+    margin: 0 auto;
+  }
+  tr, td {
+    border-top: none !important;
+  }
+
+  thead {
+    border-right: 1px solid darkslateblue;
+  }
+
+  th {
+    background-color: darkslateblue;
+    border: none;
+    color: #f5f5f5;
+    text-align: center;
+  }
+  .table-data {
+    height: 160px;
+    > td {
+      padding-top: 20px;
+    }
+  }
+  #item {
+    width: 25%;
+  }
+  #description {
+    width: 30%;
+  }
+  #price {
+    width: 15%;
+  }
+  #qty {
+    width: 10%;
+  }
+
+  #total {
+    width: 20%;
+  }
+  #item, #description {
+    text-align: left;
+  }
+  #price, #qty, #total {
+    text-align: center;
+  }
+
+  #invoice_qty {
+    text-align: right;
+  }
+
+  .right-align {
+    text-align: right;
+    border-left: none;
+  }
+  #invoice_item_id {
+    margin-left: 1px;
+  }
+  #invoice_description_id {
+    width: 180px;
+  }
+  .datepicker {
+    width: 100px;
+    text-align: center;
+    position: relative;
+    z-index: 5000;
+  }
+
+  #invoice_amount {
+    width: 100px;
+    height: 40px;
+    line-height: normal;
+  }
+  .calc {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+  }
+  .dollar {
+    float: left;
+  }
+
+  #line-total-f, #tax-calc-f, #freight-calc-f, #total-calc-f {
+    padding-right: 5px;
+  }
+
+
+  .invoice_date {
+    position: relative;
+    .ui-datepicker-trigger {
+      position: absolute;
+      top: 10px;
+      left: -8px;
+      z-index: 5001;
+    }
+  }
+
+  #totals > td {
+    padding-bottom: 20px;
+  }
+
+
+
+  /* PHOTO GALLERY********************************/
+
+  #form-gallery {
+    margin: 0px auto 20px auto;
+    width: 400px;
+    height: 160px;
+    overflow: auto;
+    img {
+      display: inline;
+      padding: 5px;
+      margin: 2px;
+      height: 75px;
+      width: 75px;
+      border: 3px solid #d3d3d3;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+    }
+  }
+  .image-link:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+}
+
+#toolbarContainer, .findbar, .secondaryToolbar {
+  background-color: #f5f5f5 !important;
+}
+
+
+

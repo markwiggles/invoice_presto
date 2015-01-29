@@ -1,0 +1,8 @@
+
+// Write the new tax %
+var taxPercent = <%= @tax_code.percent %>;
+$('#tax-percent').html(taxPercent);
+
+// Calculate and write the new tax $ and new invoice total
+calculateTax(taxPercent);
+calculateInvoiceTotal();

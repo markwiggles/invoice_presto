@@ -1,0 +1,18 @@
+
+/ EDIT FORM
+
+%h4
+  %strong.text-info
+    =format_name params
+
+=simple_form_for @tax_code, url: {controller: 'account/tax_codes', action: 'update'}, remote: true do |f|
+
+  =f.input :name, autofocus: true, label: false, placeholder: 'name'
+  =f.input :percent, label: false, placeholder: 'percent'
+
+  %br
+  =f.button :submit, 'Update', class: 'btn-default'
+
+
+
+

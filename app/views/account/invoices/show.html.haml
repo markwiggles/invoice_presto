@@ -1,0 +1,15 @@
+
+
+=button_tag 'Send Mail', :class => 'btn btn-default btn-lg', id: 'send-btn', data_invoice: "#{@invoice_number}" ,remote: true
+
+
+-url_path = "show/#{params[:id]}.pdf"
+
+=render 'invoice'
+
+
+-#%iframe{src: "/pdf?file=account/invoices/#{url_path}", width: '800',height: '800'}
+
+
+
+

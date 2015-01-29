@@ -1,0 +1,20 @@
+
+// NEW FORM
+
+%h4
+  %strong.text-info
+    =format_name params
+
+=simple_form_for @biller, url: {controller: 'account/billers', action: 'create'}, remote: true do |f|
+
+  =f.input :name, autofocus: true, label: false, placeholder: 'name'
+  =f.input :address1, label: false, placeholder: 'address'
+  =f.input :address2, label: false, placeholder: 'address'
+  =f.input :town, label: false, placeholder: 'town/suburb'
+  =f.input :postcode, label: false, placeholder: 'postcode'
+  =f.input :email, label: false, placeholder: 'email'
+  =f.input :phone, label: false, placeholder: 'phone'
+  %br
+  =f.button :submit, 'Create New', class: 'btn-default'
+
+

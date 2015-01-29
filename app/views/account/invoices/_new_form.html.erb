@@ -1,0 +1,167 @@
+<!--NEW INVOICE FORM-->
+
+<div id="invoice-form" class="container account-invoice">
+
+  <%= simple_form_for @invoice, url: {controller: 'invoices', action: 'create'}, remote: true do |f| %>
+
+      <div class="row">
+
+
+        <div id="tax-details">
+          <h4 class="text-primary" style="display: inline-block"></h4>
+        </div>
+
+      </div>
+
+      <div id="invoice-print">
+
+
+        <!-- TOP INVOICE SECTION-->
+
+        <div class="row">
+
+          <!-- LEFT ALIGNED LOGO AND BILLER-->
+          <div id="biller-section" class="pull-left">
+            <div id="logo"></div>
+            <div class="address" id="biller-details">
+              <%= f.input :billers_id, collection: @billers.map { |sel| [sel.name, sel.id] }, prompt: add_select_message('Biller'), label: false %>
+              <div id="biller"></div>
+            </div>
+          </div>
+
+          <!--RIGHT ALIGNED INVOICE HEADER AND DEBTOR-->
+          <div class="pull-right" id="invoice-header">
+            <h1 class="text-primary">INVOICE</h1>
+
+            <div id="invoice-sub-header" class="pull-right">
+              <p><%= @date %></p>
+
+              <p><%= f.input :invoice_number, placeholder: 'Create invoice No.', label: false %></p>
+            </div>
+
+            <div id="debtor-details">
+              <p class="text-primary">Bill To:</p>
+              <%= f.input :debtors_id, collection: @debtors.map { |sel| [sel.name, sel.id] }, prompt: add_select_message('Debtor'), label: false %>
+              <div id="debtor"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Table-->
+        <div class="row">
+          <div id="invoice-details">
+
+            <div id="bank-details">
+              <p class="text-primary">Bank Account Details:</p>
+              <%= f.input :bank_details_id, collection: @bank_details.map { |sel| [sel.account_name, sel.id] }, prompt: add_select_message('Bank Acc'), label: false %>
+              <div id="bank-account"></div>
+            </div>
+
+
+            <table class="table">
+
+              <thead>
+              <tr>
+                <th id="item">
+                  <div>Item</div>
+                </th>
+                <th id="description">
+                  <div>Description</div>
+                </th>
+                <th id="price">
+                  <div>Price</div>
+                </th>
+                <th id="qty">
+                  <div>Qty</div>
+                </th>
+                <th id="total">
+                  <div>Total</div>
+                </th>
+              </tr>
+              </thead>
+
+              <tbody>
+
+
+              <!-- Line Item -->
+              <tr class="table-data">
+
+                <td><%= f.input :items_id, collection: @items.map { |sel| [sel.name, sel.id] }, label: false, prompt: add_select_message('Item') %></td>
+
+                <!--Get the description and price based on selection-->
+                <td>
+                  <div id="item-description"></div>
+                </td>
+
+                <td class="right-align">
+                  <div id="item-price" style="display:none;">0</div>
+                  <div id="item-price-f"></div>
+                </td>
+
+
+                <td class="right-align">
+                  <div><%= f.input :qty, collection: (1..100).map { |n| [n, n] }, selected: 1, label: false %></div>
+                </td>
+
+                <td class="right-align">
+                  <div id="line-total" style="display:none;">0</div>
+                  <div id="line-total-f"></div>
+                </td>
+
+              </tr>
+
+              <!-- Tax Item -->
+              <tr>
+                <td class="right-align" colspan="4" dir="rtl">
+                  <%= f.input :tax_codes_id, collection: @tax_codes.map { |sel| [sel.name, sel.id] }, label: false, prompt: add_select_message('Tax Code') %>
+                </td>
+
+                <td class="right-align">
+                  <div id="tax-percent" style="display:none;">0</div>
+                  <div id="tax-calc" style="display:none;">0</div>
+                  <div id="tax-calc-f"></div>
+                </td>
+              </tr>
+
+              <!-- Freight Item -->
+              <tr>
+                <td class="right-align" colspan="4" dir="rtl">
+                  <%= f.input :freight_codes_id, collection: @freight_codes.map { |sel| [sel.name, sel.id] }, label: false, prompt: add_select_message('Freight Code') %>
+                </td>
+                <td class="right-align">
+                  <div id="freight-calc" style="display:none;">0</div>
+                  <div id="freight-calc-f"></div>
+                </td>
+              </tr>
+
+
+              <!-- Total -->
+              <tr id="totals">
+                <td class="right-align" colspan="4">
+                  <div class="td-text">Invoice Total</div>
+                </td>
+                <td class="right-align">
+                  <div id="total-calc" style="display:none;">0</div>
+                  <div id="total-calc-f"></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <!--END table-->
+        </div>
+      </div>
+      <%= f.button :submit, '&#xf022; Create Invoice'.html_safe, class: 'btn-default create-invoice' %>
+
+  <% end %>
+
+</div><!--END invoice-form-->
+
+
+
+
+
+
+

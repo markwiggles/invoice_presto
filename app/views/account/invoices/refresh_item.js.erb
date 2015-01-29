@@ -1,0 +1,22 @@
+
+$('#item-description').empty();
+$('#item-price').empty();
+
+// Write the description and price (hidden)
+$('#item-description').html("<%= @item.description%>");
+$('#item-price').html(<%= @item.price %>);
+
+// Assign the price and qty
+var price = <%= @item.price %>;
+var qty = $('#invoice_qty').val();
+
+// Write the formatted price
+writeFormattedCurrency('#item-price-f', <%= @item.price %> );
+
+// Calculate the line total based on the qty, and write to divs
+var lineTotal = price * qty;
+$('#line-total').html(lineTotal);
+writeFormattedCurrency('#line-total-f', lineTotal)
+
+//calculate and write the invoice total
+calculateInvoiceTotal();

@@ -1,0 +1,40 @@
+
+$('.form-view').empty();
+
+$('.form-view').html("<%= j render :partial => 'new_form'%>");
+
+
+// Style some validations for required fields
+var requiredFields = $('.required');
+
+requiredFields.each(function(index,field) {
+
+    if ($(field).find('.help-inline').length > 0) {
+        $(this).find('select, input').css({color: 'red'});
+        $(this).addClass('placeholder');
+    }
+
+});
+
+
+redrawSelection('#invoice_logo_id', 'invoices/refresh_image');
+redrawSelection('#invoice_bank_detail_id', 'invoices/refresh_bank_details');
+redrawSelection('#invoice_biller_id', 'invoices/refresh_biller');
+redrawSelection('#invoice_debtor_id', 'invoices/refresh_debtor');
+redrawSelection('#invoice_item_id', 'invoices/refresh_debtor');
+redrawSelection('#invoice_description_id', null);
+redrawSelection('#invoice_date', null);
+redrawSelection('#invoice_amount', null);
+
+
+initSelections();
+initDatepicker();
+
+calculateTotals();
+initCalculations();
+
+function redrawSelection(element, path) {
+    var id = $(element).val();
+    id != '' ? sendAjaxCall(path,id): '';
+}
+

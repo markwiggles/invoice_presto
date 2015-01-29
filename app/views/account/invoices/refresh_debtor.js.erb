@@ -1,0 +1,5 @@
+
+
+$('#debtor').empty();
+
+$('#debtor').html("<%= j render :partial => 'account/invoices/debtor', locals: {:debtor => @debtor} %>");
